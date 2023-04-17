@@ -1,6 +1,7 @@
 # ASD-cancer
 ## Introduction
  ASD-cancer (autoencoder-based subtypes detector for cancer) is a semi-supervised deep learning framework based on autoencoder. In our study, autoencoder models were used to extract relevant features from the normalized microbiome abundance data and transcriptome data for identifying cancer survival subtypes. These extracted features were then analyzed using univariate Cox-PH regression to identify a subset of survival-related features. To ensure an adequate number of features, we implemented an ensemble step using a total of 20 models. We then determine the number of survival subtypes using Gaussian Mixture Models and the highest silhouette score. 
+ 
 ![](ASD-cancer.png)
 
 ## Requirements
