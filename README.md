@@ -46,8 +46,11 @@ The arguments are:
 |...|...|...|
 
 `-n` or `--num_of_models`: (optional) number of ensemble models. Default is 20.
+
 `-m` or `--model_dir`: directory to save trained models.
+
 `--load-model`: (optional) flag to load trained models.
+
 `-o` or `--results_dir`: directory to save results.
 
 ## Example
