@@ -1,7 +1,7 @@
 # ASD-cancer
 ## Introduction
- ASD-cancer (autoencoder-based subtypes detector for cancer) is a semi-supervised deep learning framework based on autoencoder. In our study, autoencoder models were used to extract relevant features from the normalized microbiome abundance data and transcriptome data for identifying cancer survival subtypes. These extracted features were then analyzed using univariate Cox-PH regression to identify a subset of survival-related features. To ensure an adequate number of features, we implemented an ensemble step using a total of 20 models. We then determine the number of survival subtypes using Gaussian Mixture Models and the highest silhouette score. 
- 
+ASD-cancer (autoencoder-based subtypes detector for cancer) is a semi-supervised deep learning framework based on autoencoder. In our study, we used autoencoder models to extract relevant features from normalized microbiome abundance data and transcriptome data for identifying cancer survival subtypes. We then analyzed these extracted features using univariate Cox proportional hazards (Cox-PH) regression to identify a subset of survival-related features. To ensure an adequate number of features, we implemented an ensemble step using a total of 20 models. We determined the number of survival subtypes using Gaussian mixture models and the highest silhouette score.
+
 ![](ASD-cancer.png)
 
 ## Requirements
@@ -9,7 +9,7 @@ The code is written in Python 3.10. The required packages are listed in `require
 ```
 pip install -r requirements.txt
 ```
-If you wonder gpu acceleration, you can install the gpu version of pytorch according to the [official website](https://pytorch.org/get-started/locally/).
+If you want to use GPU acceleration, you can install the GPU version of PyTorch according to the [official website](https://pytorch.org/get-started/locally/).
 
 ## Command line instructions
 To run the script using command line with arguments, use the following format:
@@ -52,7 +52,7 @@ The arguments are:
 
 `--load-model`: (optional) flag to load trained models.
 
-`-o` or `--results_dir`: directory to save results.
+`-o` or `--results_dir`: directory to save results. The results contain the following files: A CSV file containing the survival subtypes of the hosts and three PNG files containing the survival subtype results of the tumor microbiome, the host gene and their integration results with p-values tested by log-rank test.
 
 ## Example
 We provide the data of LIHC as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
