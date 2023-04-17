@@ -30,19 +30,22 @@ The arguments are:
 |host1|0.01|0.05|...|
 |host2|0|0.02|...|
 |...|...|...|...|
+
 `-r` or `--mRna_dir`: A CSV file containing the expression of fpkm normalized mRNA in the sample. The rows represent the hosts and the columns represent the genes. The format of the file should look like:
 || gene1| gene2|...|
 |---|---|---|---|
 |host1|20|70|...|
 |host2|40|120|...|
 |...|...|...|...|
+
 `-s` or `--survival_dir`: A CSV file containing the survival information of the hosts. The file should contains three columns: `sample_id`, `OS` and `OS.time`. `sample_id` is the sample ID of the host, `OS` is the survival status of the host, and `OS.time` is the survival time of the host. The format of the file should look like:
 |sample_id| OS| OS.time|
 |---|---|---|
 |host1|1|150|
 |host2|0|200|
 |...|...|...|
-`-n` or `--num_of_models`: (optional) number of models, default value is 20.
+
+`-n` or `--num_of_models`: (optional) number of ensemble models. Default is 20.
 `-m` or `--model_dir`: directory to save trained models.
 `--load-model`: (optional) flag to load trained models.
 `-o` or `--results_dir`: directory to save results.
