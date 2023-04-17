@@ -1,0 +1,38 @@
+astor==0.8.1
+autograd==1.5
+autograd-gamma==0.5.0
+certifi @ file:///croot/certifi_1671487769961/work/certifi
+contourpy==1.0.7
+cycler==0.11.0
+filelock @ file:///croot/filelock_1672387128942/work
+flit_core @ file:///croot/flit-core_1679397103445/work/source/flit_core
+fonttools==4.39.3
+formulaic==0.5.2
+future==0.18.3
+gmpy2 @ file:///tmp/build/80754af9/gmpy2_1645455533097/work
+interface-meta==1.3.0
+Jinja2 @ file:///croot/jinja2_1666908132255/work
+joblib==1.2.0
+kiwisolver==1.4.4
+lifelines==0.27.4
+MarkupSafe @ file:///opt/conda/conda-bld/markupsafe_1654597864307/work
+matplotlib==3.7.1
+mpmath==1.2.1
+networkx @ file:///croot/networkx_1678964333703/work
+numpy==1.24.2
+packaging==23.1
+pandas==2.0.0
+Pillow==9.5.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+pytz==2023.3
+scikit-learn==1.2.2
+scipy==1.10.1
+six==1.16.0
+sympy @ file:///croot/sympy_1668202399572/work
+threadpoolctl==3.1.0
+torch==2.0.0
+triton==2.0.0
+typing_extensions @ file:///croot/typing_extensions_1669924550328/work
+tzdata==2023.3
+wrapt==1.15.0
