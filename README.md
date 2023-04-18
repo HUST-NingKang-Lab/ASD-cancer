@@ -55,7 +55,7 @@ The arguments are:
 `-o` or `--results_dir`: directory to save results. The results contain the following files: A CSV file containing the survival subtypes of the hosts and three PNG files containing the survival subtype results of the tumor microbiome, the host gene and their integration results with p-values tested by log-rank test.
 
 ## Example
-We provide the data of LIHC as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
+We provide the data of LIHC (Liver hepatocellular carcinoma) as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
 
 To train the models and save the results:
 
