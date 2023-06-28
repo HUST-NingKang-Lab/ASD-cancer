@@ -48,14 +48,14 @@ The arguments are:
 
 `-n` or `--num_of_models`: (optional) number of ensemble models. Default is 20.
 
-`-m` or `--model_dir`: directory to save trained models.
+`-m` or `--model_dir`: directory to save or load trained models.
 
 `-p` or `--pretrained_model_dir`: (optional) directory to load pretrained models. If this argument is not provided, the script will train new models and save them in the directory specified by `-m` or `--model_dir`. If this argument is provided, the script will load the pretrained models from the directory specified by `-p` or `--pretrained_model_dir` and save the optimized models in the directory specified by `-m` or `--model_dir`.
 
 `-o` or `--results_dir`: directory to save results. The results contain the following files: A CSV file containing the survival subtypes of the hosts and three PNG files containing the survival subtype results of the tumor microbiome, the host gene and their integration results with p-values tested by log-rank test.
 
 ## Example
-We provide the data of LIHC as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
+We provide the data of LIHC (Liver hepatocellular carcinoma) as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
 
 To load the pretrained models and save the results in the `results` folder:
 
