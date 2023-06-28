@@ -9,6 +9,8 @@ The code is written in Python 3.10. The required packages are listed in `require
 ```
 pip install -r requirements.txt
 ```
+The installation would take a few minutes.
+
 If you want to use GPU acceleration, you can install the GPU version of PyTorch according to the [official website](https://pytorch.org/get-started/locally/).
 
 ## Command line instructions
@@ -57,7 +59,7 @@ The arguments are:
 ## Example
 We provide the data of LIHC (Liver hepatocellular carcinoma) as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
 
-To load the pretrained models and save the results in the `results` folder:
+To load the pretrained models and save the results in the `results` folder. This command took 10 minutes on a computer with Intel(R) Xeon(R) CPU E5-2630 v4 CPU and NVIDIA Tesla K80 GPU.
 
 ```
 python main.py -a data/micro.csv \
