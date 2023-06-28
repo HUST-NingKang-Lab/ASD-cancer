@@ -10,6 +10,7 @@ parser.add_argument('-a', '--micro_dir', type=str, help='directory of tumor micr
 parser.add_argument('-r', '--mRna_dir', type=str, help='directory of host mRNA fpkm data')
 parser.add_argument('-s', '--survival_dir', type=str, help='directory of host survival information')
 parser.add_argument('-n', '--num_of_models', type=int, default=20, help='number of models')
+parser.add_argument('-p', '--pretrained', type=str, help='directory of pretrained models')
 parser.add_argument('-m', '--model_dir', type=str, help='directory to save trained models')
 parser.add_argument('--load-model', action='store_true', help='load trained models')
 parser.add_argument('-o', '--results_dir', type=str, help='directory to save results')
@@ -28,7 +29,8 @@ if __name__ == '__main__':
     ensemble.fit_ae(dataset, 
                     learning_rate=[1e-5, 1e-5], 
                     epochs=1000, 
-                    load_model=args.load_model,
-                    model_dir=args.model_dir)
+                    model_dir=args.model_dir,
+                    pretrained_model_dir=args.pretrained)
+                    
     
     ensemble.fit_survival(dataset, results_dir=args.results_dir)            

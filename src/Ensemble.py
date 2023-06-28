@@ -30,18 +30,30 @@ class Ensemble(object):
                learning_rate: list, 
                batch_size = 25, 
                epochs = 1000,
-               load_model = False,
-               model_dir = None):
+               model_dir = None,
+               pretrained_model_dir = None):
         
         self.encoded_data = []
         # Train autoencoders
-        if load_model:
-            print('Loading models...')
+        if pretrained_model_dir:
+            print('Loading pre-trained models...')
             
             for i, model in enumerate(self.models):
                 for j, autoencoder in enumerate(model):
-                    autoencoder.load_state_dict(torch.load(f'{model_dir}/autoencoder_{i}_{j}.pt'))
+                    autoencoder.load_state_dict(torch.load(f'{pretrained_model_dir}/autoencoder_{i}_{j}.pt'))
             
+            print('Training models...')
+            
+            for i, model in enumerate(self.models):
+                print(f'Training model {i+1}/{self.num_of_models}...')
+                train_autoencoders(model, data, learning_rate, batch_size, epochs)
+            
+            # Save models
+            os.makedirs(model_dir, exist_ok = True)
+            
+            for i, model in enumerate(self.models):
+                for j, autoencoder in enumerate(model):
+                    torch.save(autoencoder.state_dict(), f'{model_dir}/autoencoder_{i}_{j}.pt')
             print('Finished')            
         
         else:
@@ -56,7 +68,6 @@ class Ensemble(object):
             
             for i, model in enumerate(self.models):
                 for j, autoencoder in enumerate(model):
-                    os.mkdir
                     torch.save(autoencoder.state_dict(), f'{model_dir}/autoencoder_{i}_{j}.pt')
              
             print('Finished.')      
@@ -132,7 +143,6 @@ class Ensemble(object):
         self.gmm_result = pd.DataFrame(index = data.index)
         
         for i, gmm in enumerate(self.gmms):
-            best_k = 2
             best_silhouette = 0
             
             for n_component in range(2, 5):
@@ -144,7 +154,7 @@ class Ensemble(object):
                     best_silhouette = running_silhouette
                     best_k = n_component                   
             
-            gmm.set_params(n_components = best_k)
+            gmm.set_params(n_components = 2)
         
         for i, gmm in enumerate(self.gmms):
             gmm.fit(self.selected_features[i])
@@ -172,7 +182,7 @@ class Ensemble(object):
             draw_lifelines(plot_df, 
                            cluster_col=col,
                            title=f'{col} clustering result',
-                           save_path=f'{results_dir}/{col}_clustering_result.png')
+                           save_path=f'{results_dir}/{col}_clustering_result.pdf')
         
         print('Finished.')
         

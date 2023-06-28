@@ -19,8 +19,8 @@ python main.py -a <micro_dir> \
 -r <mRna_dir> \
 -s <survival_dir> \
 -m <model_dir> \
+-p <pretrained_model_dir> \
 -o <results_dir> \
-[--load-model]
 ```
 
 The arguments are:
@@ -50,30 +50,20 @@ The arguments are:
 
 `-m` or `--model_dir`: directory to save trained models.
 
-`--load-model`: (optional) flag to load trained models.
+`-p` or `--pretrained_model_dir`: (optional) directory to load pretrained models. If this argument is not provided, the script will train new models and save them in the directory specified by `-m` or `--model_dir`. If this argument is provided, the script will load the pretrained models from the directory specified by `-p` or `--pretrained_model_dir` and save the optimized models in the directory specified by `-m` or `--model_dir`.
 
 `-o` or `--results_dir`: directory to save results. The results contain the following files: A CSV file containing the survival subtypes of the hosts and three PNG files containing the survival subtype results of the tumor microbiome, the host gene and their integration results with p-values tested by log-rank test.
 
 ## Example
 We provide the data of LIHC as an example dataset in the `data` folder. To run the script using the sample dataset, use the following command:
 
-To train the models and save the results:
+To load the pretrained models and save the results in the `results` folder:
 
 ```
 python main.py -a data/micro.csv \
 -r data/mRNA-fpkm.csv \
 -s data/survival_meta.csv \
--m models \
--o results
-``` 
-
-To load the trained models and save the results:
-
-```
-python main.py -a data/micro.csv \
--r data/mRNA-fpkm.csv \
--s data/survival_meta.csv \
--m models \
+-p models \
+-m trained_models \
 -o results \
---load-model
 ```
