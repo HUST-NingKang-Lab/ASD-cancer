@@ -69,3 +69,5 @@ python main.py -a data/micro.csv \
 -m trained_models \
 -o results \
 ```
+## Computational environment
+All experiments were conducted in a high-performance computing environment. The system was equipped with an Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz, with 256 GB of memory, and a Tesla K80 GPU for accelerated computations. The operating system used was CentOS Linux release 7.9.2009. 
