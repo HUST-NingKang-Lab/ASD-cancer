@@ -20,8 +20,7 @@ class Ensemble(object):
         self.num_of_models = num_of_models
         self.num_of_features = num_of_features
         
-        self.autoencoders = [AutoEncoder(num_of_features[i]) for i in range(num_of_omics)]
-        self.models = [self.autoencoders for i in range(num_of_models)]
+        self.models = [[AutoEncoder(num_of_features[i]) for i in range(num_of_omics)] for j in range(num_of_models)]
         
         self.scalers = [StandardScaler() for i in range(num_of_omics)]
         
@@ -78,6 +77,7 @@ class Ensemble(object):
             encoded_data = []
             
             for i, autoencoder in enumerate(model):
+                autoencoder.eval()
                 unscaled = autoencoder(data[:][i])[0].detach()   # unscaled encoded data
                 scaled = self.scalers[i].fit_transform(unscaled)
                 encoded_data.append(scaled)

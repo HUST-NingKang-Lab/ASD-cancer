@@ -68,7 +68,8 @@ def train_autoencoders(autoencoders: list, train_data, learning_rate: list, batc
                 optimizer.step()
                 train_loss += loss.item()
 
-            with torch.no_grad():   # Valid            
+            with torch.no_grad():   # Valid   
+                training_model.eval()         
                 for features in val_loader:
                     feature = features[i].to(device)
                     encoded, decoded = training_model(feature)
